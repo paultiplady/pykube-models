@@ -1,0 +1,24 @@
+name: Pull Request tests
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        python:
+#          - 3.8
+#          - 3.9
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install required packages
+        run: pip install -r requirements.txt
+      - name: Run pytest
+        run: pytest .
+# TODO: Codecov

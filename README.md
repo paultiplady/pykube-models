@@ -1,4 +1,4 @@
-# Pykube-Pydantic
+# pykube-models
 
 Pydantic models generated from the Kubernetes API, for the [pykube](https://pykube.readthedocs.io/en/latest/) k8s client.
 
@@ -10,8 +10,8 @@ I find the auto-generated client to be quite un-ergonomic to work with, and it d
 type-hinting features that make for easy to use IDE integrations.
 
 Pykube provides a simple Python client with some nice Django-like utilities, which make it quite nice to work with for
-simple workflows. However it doesn't have any knowledge of the Kubernetes OpenAPI spec, just a few basic types that
-are hand-coded like Deployment. These hand-coded specs types take a `spec` dictionary and so there's also no type 
+simple workflows. However it doesn't have any knowledge of the Kubernetes OpenAPI spec, just a few basic classes that
+are hand-coded like Deployment. These hand-coded classes take an `obj` dictionary and so there's also no type 
 hinting.
 
 Pydantic provides nice type-hint-enabled data models which can be generated from OpenAPI specs.
@@ -35,4 +35,11 @@ that Pykube expects.
   - mypy
 - [ ] Test strategy?
   - VCRPY?
+  - GH Actions?
+  - Revisit pytest - had to add conftest.py to src/models to get pytest to find the src/ modules.
 - [ ] Investigate baking in the apiVersion/kind to the base models; shouldn't need to re-specify.
+  - Maybe could use a different base class? In datamodel-code-generator:
+    --base-class BASE_CLASS
+                        Base Class (default: pydantic.BaseModel)
+- [ ] Strategy for versioning? Probably want to support different k8s API versions.
+    
