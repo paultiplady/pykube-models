@@ -36,6 +36,7 @@ that Pykube expects.
 - [ ] Test strategy?
   - VCRPY?
   - GH Actions?
+  - Revisit pytest - had to add conftest.py to src/models to get pytest to find the src/ modules.
 - [ ] Investigate baking in the apiVersion/kind to the base models; shouldn't need to re-specify.
   - Maybe could use a different base class? In datamodel-code-generator:
     --base-class BASE_CLASS

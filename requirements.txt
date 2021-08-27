@@ -1,0 +1,4 @@
+pykube-ng
+datamodel-code-generator
+pytest
+vcrpy
